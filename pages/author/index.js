@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 import Navbar from '../../components/navbar'
 import AuthorCardWithLink from '../../components/author-card-with-link'
 import Footer from '../../components/footer'
-import authorPageInitialProps82d92Resource from '../../resources/author-page-initial-props-82d92'
+import authorPageInitialProps56f6fResource from '../../resources/author-page-initial-props-56f6f'
 
 const Author1 = (props) => {
   return (
@@ -92,7 +92,7 @@ export default Author1
 
 export async function getStaticProps(context) {
   try {
-    const response = await authorPageInitialProps82d92Resource({
+    const response = await authorPageInitialProps56f6fResource({
       ...context?.params,
     })
     if (!response) {

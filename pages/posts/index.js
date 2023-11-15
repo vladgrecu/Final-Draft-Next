@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import Navbar from '../../components/navbar'
 import BlogPostCardLandscape from '../../components/blog-post-card-landscape'
 import Footer from '../../components/footer'
-import postsPageInitialProps24d26Resource from '../../resources/posts-page-initial-props-24d26'
+import postsPageInitialProps37bcfResource from '../../resources/posts-page-initial-props-37bcf'
 
 const Posts1 = (props) => {
   const router = useRouter()
@@ -147,7 +147,7 @@ export default Posts1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialProps24d26Resource({
+    const response = await postsPageInitialProps37bcfResource({
       ...context?.params,
     })
     if (!response) {

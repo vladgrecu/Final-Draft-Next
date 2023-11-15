@@ -9,8 +9,8 @@ import Navbar from '../../components/navbar'
 import AuthorCard from '../../components/author-card'
 import BlogPostCardPortrait from '../../components/blog-post-card-portrait'
 import Footer from '../../components/footer'
-import authorPageInitialPaths33ac9Resource from '../../resources/author-page-initial-paths-33ac9'
-import authorPageInitialPropsE9b78Resource from '../../resources/author-page-initial-props-e9b78'
+import authorPageInitialPaths73874Resource from '../../resources/author-page-initial-paths-73874'
+import authorPageInitialPropsE8fdcResource from '../../resources/author-page-initial-props-e8fdc'
 
 const Author = (props) => {
   return (
@@ -210,7 +210,7 @@ export default Author
 
 export async function getStaticPaths() {
   try {
-    const response = await authorPageInitialPaths33ac9Resource({
+    const response = await authorPageInitialPaths73874Resource({
       content_type: 'author',
       select: 'fields.name',
     })
@@ -234,7 +234,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await authorPageInitialPropsE9b78Resource({
+    const response = await authorPageInitialPropsE8fdcResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {

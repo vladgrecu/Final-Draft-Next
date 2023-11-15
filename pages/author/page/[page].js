@@ -8,8 +8,8 @@ import PropTypes from 'prop-types'
 import Navbar from '../../../components/navbar'
 import AuthorCardWithLink from '../../../components/author-card-with-link'
 import Footer from '../../../components/footer'
-import authorPageInitialPathsA4c28Resource from '../../../resources/author-page-initial-paths-a4c28'
-import authorPageInitialPropsBb434Resource from '../../../resources/author-page-initial-props-bb434'
+import authorPageInitialPathsD5a75Resource from '../../../resources/author-page-initial-paths-d5a75'
+import authorPageInitialPropsA8bbeResource from '../../../resources/author-page-initial-props-a8bbe'
 
 const Author11 = (props) => {
   return (
@@ -93,7 +93,7 @@ export default Author11
 
 export async function getStaticPaths() {
   try {
-    const response = await authorPageInitialPathsA4c28Resource({
+    const response = await authorPageInitialPathsD5a75Resource({
       content_type: 'author',
     })
     const totalCount = response?.meta?.pagination?.total
@@ -121,7 +121,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await authorPageInitialPropsBb434Resource({
+    const response = await authorPageInitialPropsA8bbeResource({
       ...context?.params,
       skip: (context.params.page - 1) * 10,
     })

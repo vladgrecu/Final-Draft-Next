@@ -10,10 +10,10 @@ import Navbar from '../../components/navbar'
 import PostHeader from '../../components/post-header'
 import SocialShareLinks from '../../components/social-share-links'
 import AuthorCardWithLink from '../../components/author-card-with-link'
-import BlogPostCardRelated from '../../components/blog-post-card-related'
+import BlogPostCardPortrait from '../../components/blog-post-card-portrait'
 import Footer from '../../components/footer'
-import postsPageInitialPaths7a2ebResource from '../../resources/posts-page-initial-paths-7a2eb'
-import postsPageInitialProps84ac7Resource from '../../resources/posts-page-initial-props-84ac7'
+import postsPageInitialPaths4382fResource from '../../resources/posts-page-initial-paths-4382f'
+import postsPageInitialProps9c29cResource from '../../resources/posts-page-initial-props-9c29c'
 
 const Posts = (props) => {
   return (
@@ -64,23 +64,24 @@ const Posts = (props) => {
                       items={PostsEntity?.relatedBlogPosts || []}
                       renderItem={(relatedBlogPosts) => (
                         <>
-                          <BlogPostCardRelated
-                            tag={relatedBlogPosts?.tag}
-                            postId={relatedBlogPosts?.id}
-                            preview={relatedBlogPosts?.preview}
-                            readTime={relatedBlogPosts?.readTime}
-                            publishDate={relatedBlogPosts?.publishedDate}
+                          <BlogPostCardPortrait
+                            rootClassName="blog-post-card-portrait-root-class-name2"
+                            authorName={relatedBlogPosts?.author?.name}
                             thumbnailSrc={relatedBlogPosts?.thumbnail?.url}
-                            rootClassName="blog-post-card-related-root-class-name9"
+                            preview={relatedBlogPosts?.preview}
+                            tag={relatedBlogPosts?.tag}
+                            thumbnailAlt={relatedBlogPosts?.thumbnail?.alt}
+                            publishedDate={relatedBlogPosts?.publishedDate}
+                            readTime={relatedBlogPosts?.readTime}
                           >
                             <Link href={`/posts/${relatedBlogPosts?.slug}`}>
                               <a>
-                                <h2 className="blog-post-card-title">
+                                <h1 className="blog-post-card-title">
                                   {relatedBlogPosts?.title}
-                                </h2>
+                                </h1>
                               </a>
                             </Link>
-                          </BlogPostCardRelated>
+                          </BlogPostCardPortrait>
                         </>
                       )}
                     />
@@ -169,7 +170,7 @@ export default Posts
 
 export async function getStaticPaths() {
   try {
-    const response = await postsPageInitialPaths7a2ebResource({
+    const response = await postsPageInitialPaths4382fResource({
       content_type: 'posts',
       select: 'fields.slug',
     })
@@ -193,7 +194,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialProps84ac7Resource({
+    const response = await postsPageInitialProps9c29cResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
